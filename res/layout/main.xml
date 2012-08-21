@@ -25,21 +25,21 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/newApButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/newAp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/searchApButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/searchAp" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/mapApButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
