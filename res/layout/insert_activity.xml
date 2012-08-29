@@ -1,23 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="16dp" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+    <TextView
+        android:id="@+id/lblFone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fone" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+    <EditText
+        android:id="@+id/tbxFone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
 
-            <EditText
-                android:id="@+id/editText1"
+        <requestFocus />
+    </EditText>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal" >
 
-                <requestFocus />
-            </EditText>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Tamanho" />
+                        
+                     <RadioGroup
+                        android:id="@+id/rGroupTamanho"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+                        
+                    <RadioButton
+                        android:id="@+id/rbtnPequeno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Pequeno"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtnMedio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Medio" />
+
+                    <RadioButton
+                        android:id="@+id/rbtnGrande"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Grande" />
+
+
+                    <RadioButton
+                        android:id="@+id/rbtnNaoSeiTamanho"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/NaoSei" />
+                    
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Tipo" />
+                    
+                    <RadioGroup
+                        android:id="@+id/rGroupTipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+                    
+                    <RadioButton
+                        android:id="@+id/rbtnCasa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Casa" />
+
+                    <RadioButton
+                        android:id="@+id/rbtnApartamento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Apartamento" />
+
+
+                    <RadioButton
+                        android:id="@+id/rbtnLoja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Loja" />
+                    <RadioButton
+                        android:id="@+id/rbtnNaoSeiTipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/NaoSei" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/ckbEmConstrucao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/EmConstrucao" />
+
+            <Button
+                android:id="@+id/btnPronto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Pronto" />
 
     </LinearLayout>

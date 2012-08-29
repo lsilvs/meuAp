@@ -2,9 +2,27 @@
 <resources>
 
     <string name="hello">Hello!</string>
-    <string name="app_name">MeuAp</string>
+    <string name="app_name">MoreAqui</string>
     <string name="newAp">Novo</string>
     <string name="searchAp">Procurar</string>
     <string name="mapAp">Mapa</string>
+    <string name="live_here">More Aqui</string>
+    <string name="fone">Fone:</string>
+    
+    <string name="Tamanho">Tamanho:</string>
+    <string name="Tipo">Tipo:</string>
+    <string name="Pequeno">Pequeno:</string>
+    <string name="Medio">Medio:</string>
+    <string name="Grande">Grande:</string>
+    <string name="NaoSei">Nao Sei:</string>
+    <string name="Casa">Casa:</string>
+    <string name="Apartamento">Apartamento:</string>
+    <string name="Loja">Loja:</string>
+    <string name="EmConstrucao">Em Construção:</string>
+    <string name="Pronto">Pronto!</string>
+    <string name="ErrorNumber">Numero de telefone possui formato invalido!</string>
+    <string name="InfoSucess">Informação Inserida com sucesso!</string>
+    
+   
 
 </resources>

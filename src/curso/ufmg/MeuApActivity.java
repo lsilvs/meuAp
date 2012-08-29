@@ -30,7 +30,7 @@ public class MeuApActivity extends Activity implements OnClickListener {
    
     }
 
-	@Override
+	//@Override
 	public void onClick(View v) {
 		Intent i;
 		switch (v.getId()) {
