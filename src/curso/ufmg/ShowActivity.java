@@ -17,7 +17,7 @@ import static curso.ufmg.Constants.PHONE;
 public class ShowActivity extends ListActivity {
 	
 	
-	private EstatesData db_imovel;
+	private EstateData db_imovel;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class ShowActivity extends ListActivity {
     }
     
     private Cursor getImoveis(){
-    	db_imovel = new EstatesData(this);
+    	db_imovel = new EstateData(this);
     	SQLiteDatabase db = db_imovel.getReadableDatabase();
     	
    	

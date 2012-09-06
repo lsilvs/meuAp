@@ -19,7 +19,7 @@ import android.widget.Button;
 
 public class MoreAqui3Activity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
-	private EstatesData db_imovel;
+	private EstateData db_imovel;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,7 +94,7 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
 	}
 
     private Cursor getImoveis(){
-    	db_imovel = new EstatesData(this);
+    	db_imovel = new EstateData(this);
     	SQLiteDatabase db = db_imovel.getReadableDatabase();
     	
    	

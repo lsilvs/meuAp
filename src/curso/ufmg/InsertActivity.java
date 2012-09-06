@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,9 +27,14 @@ import static curso.ufmg.Constants.STATUS;
 import static curso.ufmg.Constants.SIZE;
 import static curso.ufmg.Constants.PHONE;
 
-public class InsertActivity extends Activity implements OnClickListener {
-    /** Called when the activity is first created. */
-	private EstatesData db_imovel;
+public class InsertActivity extends Activity implements OnClickListener, LocationListener {
+	
+	
+	private LocationManager locManager;
+	
+
+	/** Called when the activity is first created. */
+	private EstateData db_imovel;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,7 @@ public class InsertActivity extends Activity implements OnClickListener {
         Button newProntoButton = (Button) findViewById(R.id.btnPronto);
         newProntoButton.setOnClickListener(this);
 
+        locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 	
 	//@Override
@@ -53,9 +63,19 @@ public class InsertActivity extends Activity implements OnClickListener {
 			
 			CheckBox EmConstrucao = (CheckBox) findViewById(R.id.ckbEmConstrucao);
 			
+			/*pegar coordenada GPS*/
+			Criteria criteria = new Criteria();
+			locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+			
+			String bestProvider = locManager.getBestProvider(criteria, false);
+			Location location = locManager.getLastKnownLocation(bestProvider);
+			
+			Double lat = location.getLatitude();
+			Double lon = location.getLongitude();
+
 			try{
 	    		
-				db_imovel = new EstatesData(this);
+				db_imovel = new EstateData(this);
 				
 	    		SQLiteDatabase db = db_imovel.getWritableDatabase();
 	    		
@@ -82,4 +102,27 @@ public class InsertActivity extends Activity implements OnClickListener {
     		
 	    }
 	}
+
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+
 }

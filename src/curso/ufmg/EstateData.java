@@ -11,11 +11,11 @@ import static curso.ufmg.Constants.STATUS;
 import static curso.ufmg.Constants.SIZE;
 import static curso.ufmg.Constants.PHONE;
 
-public class EstatesData extends SQLiteOpenHelper {
+public class EstateData extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "curso_ufmg";
 	private static final int DATABASE_VERSION = 1;
 	
-	public EstatesData (Context ctx){
+	public EstateData (Context ctx){
 		super(ctx, DATABASE_NAME,null,DATABASE_VERSION);
 	}
 
