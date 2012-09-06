@@ -1,9 +1,10 @@
 package curso.ufmg;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,10 +13,19 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import curso.ufmg.Estate;
+
+
+/*variaveis Banco de Dados*/
+
+import static curso.ufmg.Constants.TABLE_NAME;
+import static curso.ufmg.Constants.TYPE;
+import static curso.ufmg.Constants.STATUS;
+import static curso.ufmg.Constants.SIZE;
+import static curso.ufmg.Constants.PHONE;
 
 public class InsertActivity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
+	private EstatesData db_imovel;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,17 +54,26 @@ public class InsertActivity extends Activity implements OnClickListener {
 			CheckBox EmConstrucao = (CheckBox) findViewById(R.id.ckbEmConstrucao);
 			
 			try{
-
-	    		Estate imovel = new Estate(tipoSelected.getText().toString(), tamanhoSelected.getText().toString(), Integer.parseInt(fone.getText().toString()), EmConstrucao.isChecked() ? "sim" : "nao");
-   		
-	    		Log.v("New", imovel.toString());
+	    		
+				db_imovel = new EstatesData(this);
+				
+	    		SQLiteDatabase db = db_imovel.getWritableDatabase();
+	    		
+	    		ContentValues values = new ContentValues();
+	    		
+	    		values.put(TYPE, tipoSelected.getText().toString());
+	    		values.put(SIZE,tamanhoSelected.getText().toString());
+	    		values.put(STATUS,EmConstrucao.isChecked() ? "sim" : "nao");
+	    		values.put(PHONE,Integer.parseInt(fone.getText().toString()));
+	    		
+	    		db.insertOrThrow(TABLE_NAME, null, values);
+	    		
 				Toast toast = Toast.makeText(context, R.string.InfoSucess, Toast.LENGTH_SHORT);
 				toast.show();
 	    		
 			}
 			catch (NumberFormatException e) {
 			
-					
 					Toast toast = Toast.makeText(context, R.string.ErrorNumber, Toast.LENGTH_SHORT);
 					toast.show();
 				}

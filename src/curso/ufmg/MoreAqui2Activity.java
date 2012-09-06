@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MeuApActivity extends Activity implements OnClickListener {
+public class MoreAqui2Activity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
 	
     @Override
@@ -39,7 +39,7 @@ public class MeuApActivity extends Activity implements OnClickListener {
     		startActivity(i);
     		break;
 		case R.id.searchApButton: 
-    		i = new Intent(this, InsertActivity.class);
+    		i = new Intent(this, ShowActivity.class);
     		startActivity(i);
     		break;
 		case R.id.mapApButton: 

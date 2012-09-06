@@ -4,11 +4,10 @@
     <string name="hello">Hello!</string>
     <string name="app_name">MoreAqui</string>
     <string name="newAp">Novo</string>
-    <string name="searchAp">Procurar</string>
+    <string name="searchAp">Visualizar</string>
     <string name="mapAp">Mapa</string>
     <string name="live_here">More Aqui</string>
     <string name="fone">Fone:</string>
-    
     <string name="Tamanho">Tamanho:</string>
     <string name="Tipo">Tipo:</string>
     <string name="Pequeno">Pequeno:</string>
@@ -22,7 +21,8 @@
     <string name="Pronto">Pronto!</string>
     <string name="ErrorNumber">Numero de telefone possui formato invalido!</string>
     <string name="InfoSucess">Informação Inserida com sucesso!</string>
-    
-   
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_list">MoreAqui</string>
 
 </resources>
