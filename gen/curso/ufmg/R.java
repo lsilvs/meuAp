@@ -20,7 +20,7 @@ public final class R {
         public static final int lblFone=0x7f060001;
         public static final int linearLayout1=0x7f060000;
         public static final int mapApButton=0x7f060013;
-        public static final int menu_settings=0x7f060014;
+        public static final int menu_settings=0x7f060015;
         public static final int newApButton=0x7f060011;
         public static final int rGroupTamanho=0x7f060004;
         public static final int rGroupTipo=0x7f06000a;
@@ -32,6 +32,7 @@ public final class R {
         public static final int rbtnNaoSeiTamanho=0x7f060008;
         public static final int rbtnNaoSeiTipo=0x7f06000e;
         public static final int rbtnPequeno=0x7f060005;
+        public static final int recordApButton=0x7f060014;
         public static final int searchApButton=0x7f060012;
         public static final int tbxFone=0x7f060002;
         public static final int textView2=0x7f060003;
@@ -67,6 +68,7 @@ public final class R {
         public static final int mapAp=0x7f040004;
         public static final int menu_settings=0x7f040015;
         public static final int newAp=0x7f040002;
+        public static final int record=0x7f040017;
         public static final int searchAp=0x7f040003;
         public static final int title_activity_list=0x7f040016;
     }
