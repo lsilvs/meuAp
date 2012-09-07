@@ -26,15 +26,17 @@ import static curso.ufmg.Constants.TYPE;
 import static curso.ufmg.Constants.STATUS;
 import static curso.ufmg.Constants.SIZE;
 import static curso.ufmg.Constants.PHONE;
+import static curso.ufmg.Constants.LATITUDE;
+import static curso.ufmg.Constants.LONGITUDE;
 
 public class InsertActivity extends Activity implements OnClickListener, LocationListener {
 	
 	
-	private LocationManager locManager;
-	
-
 	/** Called when the activity is first created. */
 	private EstateData db_imovel;
+	private Double latitude;
+	private Double longitude;
+	
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class InsertActivity extends Activity implements OnClickListener, Locatio
         Button newProntoButton = (Button) findViewById(R.id.btnPronto);
         newProntoButton.setOnClickListener(this);
 
-        locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        
     }
 	
 	//@Override
@@ -64,15 +66,11 @@ public class InsertActivity extends Activity implements OnClickListener, Locatio
 			CheckBox EmConstrucao = (CheckBox) findViewById(R.id.ckbEmConstrucao);
 			
 			/*pegar coordenada GPS*/
-			Criteria criteria = new Criteria();
-			locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+			LocationManager locManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+			Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 1, this);
 			
-			String bestProvider = locManager.getBestProvider(criteria, false);
-			Location location = locManager.getLastKnownLocation(bestProvider);
 			
-			Double lat = location.getLatitude();
-			Double lon = location.getLongitude();
-
 			try{
 	    		
 				db_imovel = new EstateData(this);
@@ -83,8 +81,10 @@ public class InsertActivity extends Activity implements OnClickListener, Locatio
 	    		
 	    		values.put(TYPE, tipoSelected.getText().toString());
 	    		values.put(SIZE,tamanhoSelected.getText().toString());
-	    		values.put(STATUS,EmConstrucao.isChecked() ? "sim" : "nao");
+	    		values.put(STATUS,EmConstrucao.isChecked() ? "1" : "0");
 	    		values.put(PHONE,Integer.parseInt(fone.getText().toString()));
+	    		values.put(LATITUDE, location.getLatitude());
+	    		values.put(LONGITUDE, location.getLongitude());
 	    		
 	    		db.insertOrThrow(TABLE_NAME, null, values);
 	    		
@@ -104,9 +104,10 @@ public class InsertActivity extends Activity implements OnClickListener, Locatio
 	}
 
 	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-		
-	}
+			    latitude = location.getLatitude();
+			    longitude = location.getLongitude();
+     }
+	
 
 	public void onProviderDisabled(String provider) {
 		// TODO Auto-generated method stub

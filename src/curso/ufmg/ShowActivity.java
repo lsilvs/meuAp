@@ -51,7 +51,7 @@ public class ShowActivity extends ListActivity {
     		String type = cursor.getString(1);
     		String size = cursor.getString(2);
     		String status = cursor.getString(3);
-    		String phone = cursor.getString(4);
+    		String phone = cursor.getString(6);
     		
     	    builder.append(id).append(":");
     	    builder.append(type).append(":");

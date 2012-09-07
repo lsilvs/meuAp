@@ -14,5 +14,13 @@ public class EstateLocation extends Estate{
 		this.LON = Lon;
 		this.LAT = Lat;
 		
+
+		
 	}	
+	
+	public String string(){ 		
+		String ans = this.toString()+ ", Longitude: " +LON+ ", Latitude: " +LAT; 
+	
+		return ans;
+	}
 }

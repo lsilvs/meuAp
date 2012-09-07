@@ -17,9 +17,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MoreAqui3Activity extends Activity implements OnClickListener {
+public class MoreAqui5Activity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
 	private EstateData db_imovel;
+	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,6 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
         Button recordButton = (Button) findViewById(R.id.recordApButton);
         recordButton.setOnClickListener(this);
         
-        
     }
 
 	//@Override
@@ -58,7 +58,7 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
     		startActivity(i);
     		break;
 		case R.id.mapApButton: 
-    		i = new Intent(this, InsertActivity.class);
+    		i = new Intent(this, ShowAddressesActivity.class);
     		startActivity(i);
     		break;
 		case R.id.recordApButton:
@@ -67,7 +67,7 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
 			Command cmd = new Command() {
 				
 				public void execute(DaoImpl d) {
-					String[] imovel = new String[4];
+					String[] imovel = new String[6];
 					
 					
 			    
@@ -77,7 +77,9 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
 			    		imovel[1] = cursor.getString(2);
 			    		imovel[2] = cursor.getString(3);
 			    		imovel[3] = cursor.getString(4);
-			    		Imovel imovel_ser = new Imovel(imovel[0],imovel[1],imovel[2],imovel[3]);
+			    		imovel[4] = cursor.getString(5);
+			    		imovel[5] = cursor.getString(6);
+			    		Imovel imovel_ser = new Imovel(imovel[0],imovel[1],imovel[2],imovel[3],imovel[4],imovel[5]);
 			    		d.add(cursor.getLong(0),imovel_ser.toString());
 					}					
 				}
@@ -107,20 +109,24 @@ public class MoreAqui3Activity extends Activity implements OnClickListener {
     {
 		private static final long serialVersionUID = 1L;
 
-		public Imovel(String type, String size, String status, String phone){
+		public Imovel(String type, String size, String status,String lat, String lng, String phone){
     		this.type = type;
     		this.size = size;
     		this.status = status;
+    		this.lat = lat;
+    		this.lng = lng;
     		this.phone = phone;
     	}
     	
     	public final String type;
     	public final String size;
     	public final String status;
+    	public final String lat;
+    	public final String lng;
     	public final String phone;
     	
 	   	public String toString(){
-	   		return "Type: "+type+", Size: "+size+", Status: "+status+", Phone: "+phone;
+	   		return "Type: "+type+", Size: "+size+", Status: "+status+", Latitude: "+lat+", Longitude: "+lng+", Phone: "+phone;
 	   	}
     	
     }

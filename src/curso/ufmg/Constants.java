@@ -7,5 +7,7 @@ public interface Constants extends BaseColumns {
 	final String TYPE = "tipo_imovel";
 	final String SIZE = "tamanho";
 	final String STATUS = "status";
+	final String LONGITUDE = "longitude";
+	final String LATITUDE = "latitude";
 	final String PHONE = "telefone";
 }
